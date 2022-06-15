@@ -166,31 +166,32 @@ export default function Header(){
           {!user ?
             <MenuItem
               onClick={()=>navigate("/register")}
-              title="Register"
+              title="Реєстрація"
               className="hoverable focusable activable">
               Реєстрація
             </MenuItem>
             :
             <MenuItem
               onClick={()=>navigate("/products/wishlist")}
-              title="Wishlist"
-              className="hoverable focusable activable">
+              title="Список бажань"
+              className="hoverable focusable activable"
+              style={{ width: "165px"}}>
               Список бажань
             </MenuItem>
           }
           {!user ?
             <MenuItem
               onClick={()=>navigate("/login")}
-              title="Sign in"
+              title="Вхід"
               className="hoverable focusable activable">
               Вхід
             </MenuItem>
             :
             <MenuItem
               onClick={()=>navigate("/logout")}
-              title="Log out"
+              title="Вихід"
               className="hoverable focusable activable">
-              Logout
+              Вихід
             </MenuItem>
           }
           <CartItem

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { mobile, smallMobile } from '../responsive';
 
 const Span = styled.span`
   width: 100%;
@@ -10,6 +11,8 @@ const Span = styled.span`
   display: flex;
   align-items: center;
   justify-content: center;
+  ${mobile({ height: "40px"})}
+  ${smallMobile({ height: "40px"})}
 `;
 
 export default function Announcment(){
