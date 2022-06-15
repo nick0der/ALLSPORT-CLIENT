@@ -325,7 +325,7 @@ export default function Product(){
               <LinkStyled
                 to={`/products/${camefrom}`}
                 className="hoverable focusable">
-                {camefrom === "all" ? "Усі" : camefrom}
+                {camefrom === "all" ? "Усі" : camefrom === "wishlist" ? "Список Бажань" : camefrom}
               </LinkStyled>
             </ListItem>
           }

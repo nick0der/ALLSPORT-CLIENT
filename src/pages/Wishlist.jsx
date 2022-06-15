@@ -147,18 +147,18 @@ export default function Wishlist(){
         <Main>
           <Breadcrumbs>
             <LinkStyled to="/" className="hoverable" style={{marginLeft: "30px"}}>
-              Home
+              Головна
             </LinkStyled>/
             <Span>
-              Wishlist
+              Список бажань
             </Span>
           </Breadcrumbs>
           <FilterContainer>
             <Filter>
-              <FilterText>Filter Products:</FilterText>
+              <FilterText>Фільт товарів:</FilterText>
               <PriceFilterInput
                 name="min"
-                placeholder="Min price"
+                placeholder="Мін. ціна"
                 aria-label="Мінімальна ціна"
                 type="number"
                 min="0"
@@ -167,7 +167,7 @@ export default function Wishlist(){
               <PriceFilterInput
                 name="max"
                 aria-label="Максимальна ціна"
-                placeholder="Max price"
+                placeholder="Макс. ціна"
                 type="number"
                 min="0"
                 onChange={handleFilters}
@@ -177,15 +177,15 @@ export default function Wishlist(){
                 onChange={handleFilters}
                 aria-label="Колір"
                 className="focusable">
-                <Option selected disabled>Color</Option>
-                <Option>All</Option>
+                <Option selected disabled>Колір</Option>
+                <Option>Усі</Option>
                 {colors?.map((c) => (
                   <Option>{c.charAt(0).toUpperCase() + c.slice(1)}</Option>
                 ))}
               </Select>
             </Filter>
             <Filter>
-              <FilterText id="sort-label">Sort Products:</FilterText>
+              <FilterText id="sort-label">Сортування:</FilterText>
               <Select
                 aria-label="Сортувати за"
                 onChange={handleSorts}
