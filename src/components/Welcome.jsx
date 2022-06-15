@@ -38,6 +38,8 @@ const InfoContainer = styled.div`
 
 const Title = styled.h1`
   font-size: 65px;
+  ${tablet({ fontSize: "50px" })}
+  ${smallTablet({ fontSize: "50px" })}
   ${mobile({ fontSize: "40px" })}
 `;
 

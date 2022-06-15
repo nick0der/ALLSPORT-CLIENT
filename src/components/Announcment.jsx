@@ -11,8 +11,7 @@ const Span = styled.span`
   display: flex;
   align-items: center;
   justify-content: center;
-  ${mobile({ height: "40px"})}
-  ${smallMobile({ height: "40px"})}
+  ${mobile({ height: "45px", fontSize: "16px"})}
 `;
 
 export default function Announcment(){
