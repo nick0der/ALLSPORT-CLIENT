@@ -24,8 +24,13 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "heroku-postbuild": "npm run build"
   },
+  "engines": {
+    "npm": "7.15.1",
+    "node": "16.3.0"
+    },
   "eslintConfig": {
     "extends": [
       "react-app",
