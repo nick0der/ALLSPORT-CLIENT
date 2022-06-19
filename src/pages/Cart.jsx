@@ -157,6 +157,7 @@ export default function Cart(){
   const removeFromCart = (index) => {
 
     const newDiv = document.createElement("div");
+    newDiv.setAttribute("aria-live", "assertive");
     newDiv.innerHTML = "Видалено з корзини ✗";
     newDiv.style.cssText = "position: fixed;left: 0;bottom: 0;font-weight: bold;transition: opacity 1s;z-index: 1000;width: 100%;font-size: 21px;height: 50px;  background-color: #5c0e11; display: flex; align-items: center; justify-content: center; opacity: 1; color: #e6e6e6; text-shadow: 0 0 2px black; filter: progid:DXImageTransform.Microsoft.Glow(Color=#ffffff,Strength=1);";
     document.body.appendChild(newDiv);
