@@ -12,6 +12,7 @@ import { addProduct } from "../redux/cartRedux";
 import Button from "@material-ui/core/Button";
 import { useSelector } from "react-redux";
 import { updateUserWishlist } from "../redux/apis";
+import { categories } from "../data";
 import axios from "axios";
 
 const Container = styled.div`
@@ -232,6 +233,7 @@ export default function Product(){
   const handleClick = () => {
 
     const newDiv = document.createElement("div");
+    newDiv.setAttribute("aria-live", "assertive");
     newDiv.innerHTML = "Додано у корзину ✓";
     newDiv.style.cssText = newDiv.style.cssText = "position: fixed;left: 0;bottom: 0;font-weight: bold;transition: opacity 1s;z-index: 1000;width: 100%;font-size: 21px;height: 50px;  background-color: #09450d; display: flex; align-items: center; justify-content: center; opacity: 1; color: #e6e6e6; text-shadow: 0 0 2px black; filter: progid:DXImageTransform.Microsoft.Glow(Color=#ffffff,Strength=1);";
     document.body.appendChild(newDiv);
@@ -258,6 +260,12 @@ export default function Product(){
       return;
     }
     setInWishlist(true);
+
+    const newDiv = document.createElement("div");
+    newDiv.setAttribute("aria-live", "assertive");
+    newDiv.setAttribute("type", "hidden");
+    newDiv.innerHTML = "Додано у список бажань";
+    document.body.appendChild(newDiv);
   };
 
   const removeFromWishList = () => {
@@ -278,6 +286,12 @@ export default function Product(){
       return;
     }
     setInWishlist(false);
+
+    const newDiv = document.createElement("div");
+    newDiv.setAttribute("aria-live", "assertive");
+    newDiv.setAttribute("type", "hidden");
+    newDiv.innerHTML = "Видалено зі списку бажань";
+    document.body.appendChild(newDiv);
   };
 
   const zoomIn = (e) => {
@@ -306,6 +320,10 @@ export default function Product(){
     cont.style.display = "none";
   };
 
+  const categoryToUA = (category) => {
+    return categories.find(x => x.cat === category).title;
+  }
+
   return(
     <Container>
       <Header/>
@@ -325,7 +343,7 @@ export default function Product(){
               <LinkStyled
                 to={`/products/${camefrom}`}
                 className="hoverable focusable">
-                {camefrom === "all" ? "Усі" : camefrom === "wishlist" ? "Список Бажань" : camefrom}
+                {camefrom === "all" ? "Усі" : camefrom === "wishlist" ? "Список Бажань" : categoryToUA(camefrom)}
               </LinkStyled>
             </ListItem>
           }
@@ -400,7 +418,7 @@ export default function Product(){
                   <Remove style={{ width: 25, height: 25, marginLeft: "10px"}}/>
                 }>
               </Button>
-              <Amount>
+              <Amount aria-live="assertive">
                 {quantity}
               </Amount>
               <Button
@@ -415,7 +433,8 @@ export default function Product(){
           </AddContainer>
           <ButtonAdd onClick={handleClick}
             className="hoverable focusable"
-            aria-label="Додати в корзину">
+            aria-label="Додати в корзину"
+            >
               Додати у корзину&nbsp;
             <ShoppingCartOutlined style={{ width : 25, height: 25}}/>
           </ButtonAdd>

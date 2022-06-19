@@ -201,7 +201,8 @@ export default function Header(){
             className="hoverable focusable activable">
             <Badge
               badgeContent={quantity}
-              color="primary">
+              color="primary"
+              aria-live="polite">
               <ShoppingCartOutlined  style={{ width : 25, height: 25}}/>
             </Badge>
           </CartItem>
